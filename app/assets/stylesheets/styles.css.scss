@@ -1,0 +1,74 @@
+//$navbarBackgroundHighlight: red;
+$navbarBackground: red;
+//$btnPrimaryBackground: purple;
+@import 'bootstrap';
+
+html{
+    height: 95%;
+}
+
+body{
+    height: 95%;
+
+}
+
+.table th, .table td {
+padding: 8px;
+line-height: 20px;
+text-align: center;
+vertical-align: center;
+}
+
+.tagline{
+        text-align: center;
+    vertical-align: center;
+    color:black;
+    font: calibre;
+    font-size: 25;
+    height:100%;
+}
+
+.navbar-inner{
+    @include box-shadow(none !important);
+    border: 0;
+}
+
+.navbar .nav > li > a {
+  float: left;
+  padding: 15px 15px 10px;
+  color: $black;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgb(221, 138, 138);
+}
+
+@import 'bootstrap-responsive';
+
+
+.progress{
+text-align:center;
+vertical-align: bottom;
+}
+
+.container {
+height: 100%;
+min-height: 100%;
+height: auto !important;
+margin: 0 auto -14px;
+}
+
+.push{
+clear:both
+}
+
+.footer{
+    
+	text-align: center;
+	vertical-align: bottom;
+	height: 14px;
+	padding-top: 10px;
+    color: $grayLight;
+    a{
+        color: $gray;
+    }
+
+}
