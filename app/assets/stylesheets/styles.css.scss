@@ -1,26 +1,26 @@
 //$navbarBackgroundHighlight: red;
 $navbarBackground: red;
 //$btnPrimaryBackground: purple;
+
 @import 'bootstrap';
+@import 'bootstrap-responsive';
 
 html{
-    height: 95%;
+    height: 97%;
 }
 
 body{
-    height: 95%;
+    height: 97%;
 
 }
 
-.table th, .table td {
-padding: 8px;
-line-height: 20px;
+#barChart {
 text-align: center;
-vertical-align: center;
+
 }
 
 .tagline{
-        text-align: center;
+    
     vertical-align: center;
     color:black;
     font: calibre;
@@ -41,7 +41,7 @@ vertical-align: center;
   text-shadow: 0 1px 0 rgb(221, 138, 138);
 }
 
-@import 'bootstrap-responsive';
+
 
 
 .progress{
@@ -56,9 +56,12 @@ height: auto !important;
 margin: 0 auto -14px;
 }
 
-.push{
-clear:both
+.center{
+  text-align: center;
+  vertical-align: top;
 }
+
+
 
 .footer{
     

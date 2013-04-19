@@ -1,0 +1,47 @@
+<tr>
+    <td><div class="progress progress-striped progress-danger">
+  <div class="bar" style="width: 10%;">10%</div>
+</div></td>
+    <td><div class="progress">
+  <div class="bar" style="width: 60%;">60</div>
+</div></td>
+    <td><div class="progress">
+  <div class="bar" style="width: 60%;">60</div>
+</div></td>
+    <td><div class="progress">
+  <div class="bar" style="width: 60%;">40</div>
+</div></td>
+    <td><div class="progress">
+  <div class="bar" style="width: 60%;">30</div>
+</div></td>
+  </tr>
+<div id="pomchart"></div>
+<br />
+
+<!--[if IE]><script src="/javascripts/excanvas.js"></script><![endif]-->
+<script type="text/javascript" src="/javascripts/html5-canvas-bar-graph.js"></script>
+<script type="text/javascript">
+  (function(){
+
+    function createCanvas(divName) {
+      
+      var div = document.getElementById(divName);
+      var canvas = document.createElement('canvas');
+      div.appendChild(canvas);
+      if (typeof G_vmlCanvasManager != 'undefined') {
+        canvas = G_vmlCanvasManager.initElement(canvas);
+      } 
+      var ctx = canvas.getContext("2d");
+
+      return ctx;
+    }
+    var ctx = createCanvas("pomchart");
+    var graph =new BarGraph(ctx);
+    graph.maxValue=17;
+    graph.margin=2;
+    graph.colors = ["#CE0000", "#EF2323", "#D20202", "#A70000", "#850000", "#740000", "#530000"];
+    graph.xAxisLabelArr = ["Mon","Tue","Wed","Thurs","Fri", "Sat", "Sun"];
+    graph.update(0,2, 5, 2, 3, 4, 2);
+  }());
+</script>
+

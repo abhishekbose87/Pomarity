@@ -13,28 +13,43 @@
     <th>Lifetime</th>
   </tr>
   <tr>
-    <td>10</td>
-    <td>100</td>
-    <td>100</td>
-    <td>100</td>
-    <td>100</td>
-  </tr>
-    <tr>
-    <td><div class="progress progress-striped">
-  <div class="bar" style="width: 10%;">10</div>
-</div></td>
-    <td><div class="progress">
-  <div class="bar" style="width: 60%;">60</div>
-</div></td>
-    <td><div class="progress">
-  <div class="bar" style="width: 60%;">60</div>
-</div></td>
-    <td><div class="progress">
-  <div class="bar" style="width: 60%;">40</div>
-</div></td>
-    <td><div class="progress">
-  <div class="bar" style="width: 60%;">30</div>
-</div></td>
-  </tr>
+    <td>17</td>
+    <td>85</td>
+    <td>85</td>
+    <td>85</td>
+    <td>85</td>
+  </tr>   
 </table>
+
+<div id="barChart"></div>
+
+<div class="center" ><strong>Pomodoros completed last week</strong></div>
+  <!--[if IE]><script src="excanvas.js"></script><![endif]-->
+  <script src="html5-canvas-bar-graph.js"></script>
+  <script>(function () {
+  
+    function createCanvas(divName) {
+      
+      var div = document.getElementById(divName);
+      var canvas = document.createElement('canvas');
+      div.appendChild(canvas);
+      if (typeof G_vmlCanvasManager != 'undefined') {
+        canvas = G_vmlCanvasManager.initElement(canvas);
+      } 
+      var ctx = canvas.getContext("2d");
+      return ctx;
+    }
+    
+    var ctx = createCanvas("barChart");
+    
+    var graph = new BarGraph(ctx);
+    graph.maxValue = 10;
+    graph.margin = 5;
+    graph.colors = ["#CE0000", "#EF2323", "#D20202", "#A70000", "#850000", "#740000", "#530000"];
+    graph.xAxisLabelArr = ["Mon","Tue","Wed","Thurs","Fri", "Sat", "Sun"];
+    graph.update([0,2, 5, 2, 3, 4, 1]);
+
+  }());</script>
+
+  
 
