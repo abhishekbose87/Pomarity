@@ -6,6 +6,8 @@ gem 'newrelic_rpm'
 
 #This will create an admin interface
 gem 'activeadmin'
+gem 'bootstrap'
+
 
 group :production do
 gem 'pg'
