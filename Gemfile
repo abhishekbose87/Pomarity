@@ -4,6 +4,9 @@ gem 'rails', '3.2.12'
 gem 'jquery-rails'
 gem 'newrelic_rpm'
 
+#This will create an admin interface
+gem 'activeadmin'
+
 group :production do
 gem 'pg'
 end
