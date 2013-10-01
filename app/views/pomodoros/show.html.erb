@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Day:</b>
+  <%= @pomodoro.day %>
+</p>
+
+<p>
+  <b>Count:</b>
+  <%= @pomodoro.count %>
+</p>
+
+
+<%= link_to 'Edit', edit_pomodoro_path(@pomodoro) %> |
+<%= link_to 'Back', pomodoros_path %>

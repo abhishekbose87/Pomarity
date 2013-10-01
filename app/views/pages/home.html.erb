@@ -1,6 +1,7 @@
+
 <div id="barChart"></div>
 
-<div class="center" ><strong>Pomodoros completed last week  </strong></div>
+<div class="center" ></br><strong>Pomodoros completed last 7 days  </strong></div>
   <!--[if IE]><script src="excanvas.js"></script><![endif]-->
   <script src="html5-canvas-bar-graph.js"></script>
   <script>(function () {
@@ -20,27 +21,60 @@
     var ctx = createCanvas("barChart");
     
     var graph = new BarGraph(ctx);
-    graph.maxValue = 10;
+    graph.maxValue = 16;
     graph.margin = 5;
+    graph.shadowOffsetX = 2;
+    graph.shadowOffsetY = 2;
     graph.colors = ["#CE0000", "#EF2323", "#D20202", "#A70000", "#850000", "#740000", "#530000"];
     graph.xAxisLabelArr = ["Mon","Tue","Wed","Thurs","Fri", "Sat", "Sun"];
-    graph.update([5,4, 6,4, 0,1, 5]);
+	    graph.update(
+			    [ 
+			    <%= @final_count[0] %>,
+			    <%= @final_count[1]%>, 
+			  <%= @final_count[2]%>,
+			    <%= @final_count[3] %>,
+			   <%=@final_count[4] %>,
+			   <%= @final_count[5] %>,
+			   <%= @final_count[6] %>
+			    ]
+			    );
 
   }());</script>
   </br>
+   
+  <%= p Hash[*@last_week.map(&:to_s).product([0]).flatten] %>
+  <!-- <%= p *@last_week_data.flatten %>  -->
+  <%= p  @last_day %>
+  </br>
+  <%= p  @last_Sunday  %>
+  </br>
+  Final Result
+  <%= p @final_count  %>
 
-<table  class="table table-striped table-bordered table-condensed">
+ <!-- <% @final_result.each do |day,count|  %>
+	  <%= day %>
+	  <%= count %>
+  <% end %>  -->
+  
+
+<table class="table table-striped table-bordered table-condensed">
   <tr>
     <th>Week</th>
-    <th colspan="4">Pomodoros Completed</th>
+    <th colspan="4">Count</th>
   </tr>
-  <tr>
-	  <td> 38 </td>
-    <td>25</td>
-  </tr> 
+
+<% @aggregates[:cweek].each do |week,count| %>
+	<tr>
+    <td><%= week %></td>
+    <td><%= count %></td>
+  </tr>
+<% end %>
 </table>
+
+<br />  
 
 
 
   
+
 

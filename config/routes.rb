@@ -1,5 +1,12 @@
 Pomarity::Application.routes.draw do
   
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
+ # resources :pomodoros
+  #The above command was used for accessing pomodoros without admin access
+
+
   get 'about' => 'pages#about'
   root :to => 'pages#home'
 
