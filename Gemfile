@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails'
 gem 'jquery-rails'
 gem 'newrelic_rpm'
+gem 'default_value_for'
 
 #This will create an admin interface
 gem 'activeadmin'
