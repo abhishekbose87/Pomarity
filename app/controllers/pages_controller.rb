@@ -4,11 +4,16 @@ class PagesController < ApplicationController
 	  @pomodoros = @temp.sort_by{|e| e[:day]}
 
 	  @aggregates = {}
-          @pomodoros.each do |x|
-          [:year, :month, :cweek].each{|period|
-          @aggregates[period] ||= Hash.new(0)
-          @aggregates[period][x.day.send(period)] += x.count
-	  }
+         # @pomodoros.reverse.each do |x|
+         # [:year, :month, :cweek].each{|period|
+         # @aggregates[period] ||= Hash.new(0)
+         # @aggregates[period][x.day.send(period)] += x.count
+	 # }
+	 # end
+
+	  @aggregates[:weekyear]= Hash.new(0)
+          @pomodoros.reverse.each do |x|
+          @aggregates[:weekyear][x.day.strftime("%G-W%V")] = @aggregates[:weekyear][x.day.strftime("%G-W%V")] + x.count
 	  end
 
           @last_day= @pomodoros.last[:day] 
@@ -18,7 +23,7 @@ class PagesController < ApplicationController
 	  @last_week_data.each do |x|
 		  @last_week_hash[x[:day]]=x[:count]
 	  end
-	 @last_week = ((@last_Sunday - 7).. @last_Sunday).to_a
+	 @last_week = ((@last_Sunday - 6).. @last_Sunday).to_a
 
 
 	 @final_result =Hash[*@last_week.product([0]).flatten].merge Hash[*@last_week_hash.to_a.flatten]

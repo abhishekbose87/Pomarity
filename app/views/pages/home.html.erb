@@ -56,20 +56,20 @@
 	  <%= count %>
   <% end %>  -->
   
-
+<div class="table-responsive">
 <table class="table table-striped table-bordered table-condensed">
   <tr>
-    <th>Week</th>
+    <th>Year-Week</th>
     <th colspan="4">Count</th>
-  </tr>
-
-<% @aggregates[:cweek].each do |week,count| %>
+  </tr> 
+<% @aggregates[:weekyear].each do |weekyear,count| %>
 	<tr>
-    <td><%= week %></td>
+    <td><%= weekyear %></td>
     <td><%= count %></td>
   </tr>
 <% end %>
 </table>
+</div>
 
 <br />  
 
