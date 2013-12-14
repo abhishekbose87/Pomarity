@@ -16,6 +16,10 @@ end
 
 group :development,:test do
 gem 'sqlite3'
+gem 'rspec-rails'
+gem 'spork-rails', '4.0.0'
+gem 'childprocess', '0.3.6'
+gem 'capybara', '2.1.0'
 end
 
 # Gems used only for assets and not required
